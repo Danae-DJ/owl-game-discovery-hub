@@ -5,7 +5,7 @@ export function loadFooter() {
 
         <p> © 2026 🌙 OWL: Open World Library 🌙 </p>
         <p>Contact: <a href="owl-discovery@support.com">📧</a></p>
-        <p>Follow us: <a href="https://twitter.com/owlgame">🐦</a></p>
+        <p>Follow us: <a href="https://twitter.com/owlgamehub">🐦</a></p>
 
         <small>
         Game Discovery Hub
