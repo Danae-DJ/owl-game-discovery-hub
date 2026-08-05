@@ -1,16 +1,21 @@
 # BYU-Pathway Worldwide Online
 ## WDD 330 - Web Frontend Development II
 
-### ⛺ SleepOutside Starter Code
+### 🦉OWL (Open World Library)
+### Game Discovery Hub
+Final Project:
+by Dánae De la Cruz Jiménez
 
- - This repository is the start of the SleepOutside web application project for WDD 330. The repository contains branches which are checkpoints for the team and individual assignments throughout the course.
 
- - https://byui-cse.github.io/wdd330-ww-course/week01/team.html
+OWL is a web application designed to help users discover new video games through advanced browsing tools and specific search filters. Users will be able to find games based on characteristics such as genre, platform, popularity, developer, and publisher. They will also be able to watch trailers, explore detailed information about each game, and save their favorite titles to a personal collection.
+
+Additionally, the application will allow users to compare different video games side by side, making it easier to decide which game best matches their interests and preferences.
+
 
 ### Prerequisites
 
 - You must have Node installed to run the following commands.
-[WDD 330 Setup Environment](https://byui-cse.github.io/wdd330-ww-course/intro/) 
+[WDD 330 week05: Danae-DJ owl-game-discovery-hub ](https://github.com/Danae-DJ/owl-game-discovery-hub.git) 
 
 ### Common Workflow Commands
 
