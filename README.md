@@ -26,9 +26,9 @@ Additionally, the application will allow users to compare different video games 
 
 ---
 ### RUN the repository
-In a terminal, use `npm run server`(for use fisrt API game database IDGB).
-While in other terminal, use `npm run start` (for use the OWL page).
-Use both at the same time to activate the API within the main page.
+- In a terminal, use `npm run server`(for use fisrt API game database IDGB).
+- While in other terminal, use `npm run start` (for use the OWL page).
+- Use both at the same time to activate the API within the main page.
 NOTE: Use only `npm run start`, without activating the other terminal, to test the error message.
 ---
 
