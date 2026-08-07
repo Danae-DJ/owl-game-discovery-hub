@@ -272,3 +272,11 @@ nav{
 
 }
 
+/* main error message to featured games cards */
+
+.error-message {
+    text-align: center;
+    color: #ff4d4d;
+    font-size: 1.2rem;
+    padding: 2rem;
+}
