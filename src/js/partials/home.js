@@ -1,6 +1,6 @@
 import { renderGameCard } from "./gameCard.js";
 
-export function renderHome() {
+export function renderHome(games) {
   const hero = document.querySelector(".hero");
 
     hero.innerHTML = `
@@ -55,16 +55,15 @@ export function renderHome() {
         </div>
     `;
 
-  const featured = document.querySelector(".featured-games");
+  const featuredGames = document.querySelector(".featured-games");
 
-    featured.innerHTML = `
+    featuredGames.innerHTML = `
       <h2>Featured Games</h2>
 
       <div class="games-grid">
-        ${renderGameCard()}
-        ${renderGameCard()}
-        ${renderGameCard()}
-        ${renderGameCard()}
+
+        ${games.map(renderGameCard).join("")}  
+
       </div>
 
     `;

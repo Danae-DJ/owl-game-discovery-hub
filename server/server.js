@@ -11,6 +11,27 @@ app.use(cors());
 
 app.use(express.json());
 
+// Use the API routes verified
+/*
+app.get("/", async (req, res) => {
+  try {
+    const token = await getAccessToken();
+
+    res.json({
+      success: true,
+      token: token,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+});
+
+*/
+
+// Use the API routes 2
 app.use("/api", apiRoutes);
 
 app.get("/", (req, res) => {
