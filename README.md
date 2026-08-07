@@ -24,8 +24,14 @@ Additionally, the application will allow users to compare different video games 
 - `npm run start` starts up a local server and updates on any JS or CSS/SCSS 
 - `npm run build` to build final files when you are ready to turn in.
 
-
 ---
+### RUN the repository
+In a terminal, use `npm run server`(for use fisrt API game database IDGB).
+While in other terminal, use `npm run start` (for use the OWL page).
+Use both at the same time to activate the API within the main page.
+NOTE: Use only `npm run start`, without activating the other terminal, to test the error message.
+---
+
 _BYU-Pathway Worldwide improves lives through access to spiritually based, online affordable higher education. Its mission is to develop disciples of Jesus Christ who are leaders in their homes, the Church, and their communities._
 
 
