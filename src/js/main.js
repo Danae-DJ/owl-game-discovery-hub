@@ -6,27 +6,21 @@ import { renderFeaturedGames, renderFeaturedGamesError } from "./partials/featur
 
 async function init() {
     loadHeader();
-
     loadFooter();
 
-    renderHome();
-
     try {
-
         const games = await fetchGames();
 
         console.log(games);
 
+        renderHome(games);
         renderFeaturedGames(games);
-
     } catch (error) {
-
         console.error(error);
 
+        renderHome([]);
         renderFeaturedGamesError();
-
     }
-
 }
 
 init();

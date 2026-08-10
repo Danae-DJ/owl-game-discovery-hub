@@ -24,6 +24,12 @@ Additionally, the application will allow users to compare different video games 
 - `npm run start` starts up a local server and updates on any JS or CSS/SCSS 
 - `npm run build` to build final files when you are ready to turn in.
 
+--- 
+**Install Express**
+- Use API service module (server folder/scripts:"server")
+- `npm install express dotenv cors` >>> Install three essential libraries for creating a Node.js backend server: Express (the server framework), dotenv (for managing secret data using a .env file), and cors (to enable secure communication between different domains or ports).
+- `npm list --depth=0` >>> It displays only the main packages you installed directly into your project in the integrated terminal, hiding all secondary sub-dependencies to avoid a long, confusing list.
+
 ---
 ### RUN the repository
 - In a terminal, use `npm run server`(for use fisrt API game database IDGB).
