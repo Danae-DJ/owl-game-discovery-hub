@@ -47,7 +47,7 @@ export async function getGames() {
         genres.name,
         platforms.name;
 
-      limit 10;
+      limit 30;
     `,
   });
 
