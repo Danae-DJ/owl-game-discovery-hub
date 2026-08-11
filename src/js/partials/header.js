@@ -5,9 +5,9 @@ export function loadHeader() {
     <header class="site-header">
 
       <div class="logo">
-
-        <img src="/images/owl-logo.ico" alt="OWL logo">
-
+        <a href="/">
+        <img src="/images/owl-logo.ico" alt="OWL logo" title="Home">
+        </a>
         <h1>OWL</h1>
 
       </div>

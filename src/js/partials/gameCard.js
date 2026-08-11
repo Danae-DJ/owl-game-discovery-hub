@@ -21,10 +21,33 @@ export function renderGameCard(game) {
 
             <p>${genre}</p>
 
-            <button>
+            <button
+                class="details-button"
+                data-id="${game.id}"
+            >
                 View Details
             </button>
 
         </article>
     `;
+}
+
+export function setupGameCardButtons() {
+    const featuredGames = document.querySelector(".featured-games");
+
+    if (!featuredGames) {
+        return;
+    }
+
+    featuredGames.addEventListener("click", (event) => {
+        const button = event.target.closest(".details-button");
+
+        if (!button) {
+            return;
+        }
+
+        const gameId = button.dataset.id;
+
+        window.location.href = `/game/?id=${gameId}`;
+    });
 }

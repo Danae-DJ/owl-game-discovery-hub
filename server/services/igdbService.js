@@ -58,3 +58,35 @@ export async function getGames() {
 
   return await response.json();
 }
+
+export async function getGameById(id) {
+    const accessToken = await getAccessToken();
+
+    const response = await fetch("https://api.igdb.com/v4/games", {
+        method: "POST",
+        headers: {
+            "Client-ID": process.env.TWITCH_CLIENT_ID,
+            Authorization: `Bearer ${accessToken}`,
+            "Content-Type": "text/plain",
+        },
+        body: `
+            fields
+                name,
+                cover.image_id,
+                genres.name,
+                platforms.name,
+                summary,
+                rating,
+                first_release_date;
+            where id = ${id};
+        `,
+    });
+
+    if (!response.ok) {
+        throw new Error("Unable to fetch game details.");
+    }
+
+    const games = await response.json();
+
+    return games[0];
+}
