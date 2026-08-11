@@ -1,15 +1,21 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import { getAccessToken } from "./services/igdbService.js";
+import path from "path";
+import { fileURLToPath } from "url";
+//import { getAccessToken } from "./services/igdbService.js"; //Important note: We no longer need to import `getAccessToken` directly in `server.js`.`api.js` → `igdbService.js` handles communication with IGDB.
 import apiRoutes from "./routes/api.js";
 
 dotenv.config();
 
-const app = express();
-app.use(cors());
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
+const app = express();
+
+app.use(cors());
 app.use(express.json());
+
 
 // Use the API routes verified
 /*
@@ -34,14 +40,19 @@ app.get("/", async (req, res) => {
 // Use the API routes 2
 app.use("/api", apiRoutes);
 
+const distPath = path.join(__dirname, "../dist");
+
+app.use(express.static(distPath));
+
+/*//testing the server
 app.get("/", (req, res) => {
   res.json({
     message: "OWL API Running 🦉",
   });
 });
+*/
+const PORT = process.env.PORT || 3000;
 
-const PORT = 3000;
-
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server running on port ${PORT}`);
 });
