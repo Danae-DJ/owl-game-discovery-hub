@@ -2,6 +2,7 @@ import { loadHeader } from "./partials/header.js";
 import { loadFooter } from "./partials/footer.js";
 import { renderHome } from "./partials/home.js";
 import { fetchGames } from "./services/api.js";
+import { setupGameCardButtons } from "./partials/gameCard.js";
 import { renderFeaturedGames, renderFeaturedGamesError } from "./partials/featuredGames.js";
 
 async function init() {
@@ -14,6 +15,7 @@ async function init() {
         console.log(games);
 
         renderHome(games);
+        setupGameCardButtons();
         renderFeaturedGames(games);
     } catch (error) {
         console.error(error);

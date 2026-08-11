@@ -1,7 +1,6 @@
 import { renderGameCard } from "./gameCard.js";
 
 export function renderFeaturedGames(games) {
-
     const featuredGames = document.querySelector(".featured-games");
 
     featuredGames.innerHTML = `
@@ -16,7 +15,6 @@ export function renderFeaturedGames(games) {
 }
 
 export function renderFeaturedGamesError() {
-
     const featuredGames = document.querySelector(".featured-games");
 
     featuredGames.innerHTML = `
@@ -27,5 +25,4 @@ export function renderFeaturedGamesError() {
             Please try again later.
         </p>
     `;
-
 }
