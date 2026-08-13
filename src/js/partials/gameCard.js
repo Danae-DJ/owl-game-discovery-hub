@@ -25,7 +25,9 @@ export function renderGameCard(game) {
                 class="details-button"
                 data-id="${game.id}"
             >
-                View Details
+                <span class="details-button-style">
+                 View Details
+                </span>
             </button>
 
         </article>
@@ -33,13 +35,7 @@ export function renderGameCard(game) {
 }
 
 export function setupGameCardButtons() {
-    const featuredGames = document.querySelector(".featured-games");
-
-    if (!featuredGames) {
-        return;
-    }
-
-    featuredGames.addEventListener("click", (event) => {
+    document.addEventListener("click", (event) => {
         const button = event.target.closest(".details-button");
 
         if (!button) {

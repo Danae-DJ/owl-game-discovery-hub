@@ -1,6 +1,7 @@
 import { loadHeader } from "./header.js";
 import { loadFooter } from "./footer.js";
 import { fetchGameById } from "../services/api.js";
+import { saveGame, alertMessage } from "../services/collection.js"
 
 function getGameId() {
     const params = new URLSearchParams(window.location.search);
@@ -61,7 +62,9 @@ function renderGameDetails(game) {
                     id="add-to-collection"
                     data-game-id="${game.id}"
                 >
+                    <span class="collection-button-style">
                     Add to Collection
+                    </span>
                 </button>
 
             </div>
@@ -70,6 +73,7 @@ function renderGameDetails(game) {
     `;
 }
 
+/*//click- game.id - console.log -botton 1.version
 function setupCollectionButton() {
     const button = document.getElementById("add-to-collection");
 
@@ -81,6 +85,23 @@ function setupCollectionButton() {
         const gameId = button.dataset.gameId;
 
         console.log("Game selected for collection:", gameId);
+    });
+}*/
+
+//click- game completo - saveGame(game) - localStorage - botton 2. version
+function setupCollectionButton(game) {
+    const button = document.querySelector("#add-to-collection");
+
+    button.addEventListener("click", () => {
+        const result = saveGame(game);
+
+        if (result.added) {
+            console.log("The game was added to My Collection.   ");
+            alertMessage("The game was added to My Collection.   ");
+        } else {
+            console.log("The game is already in My Collection.");
+            alertMessage("The game is already in My Collection.");
+        }
     });
 }
 
@@ -103,7 +124,7 @@ async function initGameDetails() {
         console.log("Game details:", game);
 
         renderGameDetails(game);
-        setupCollectionButton();
+        setupCollectionButton(game);
     } catch (error) {
         console.error(error);
 
