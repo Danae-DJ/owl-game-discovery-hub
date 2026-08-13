@@ -13,6 +13,7 @@ export default defineConfig({
                 main: resolve(__dirname, "src/index.html"),
                 game: resolve(__dirname, "src/game/index.html"),
                 collection: resolve(__dirname, "src/collection/index.html"),
+                comparison: resolve(__dirname, "src/comparison/index.html"),
             },
         },
     },

@@ -82,9 +82,8 @@ img{
 /* header */
 
 .site-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
     align-items: center;
     padding:1rem 2rem;
     background:#081b38;
@@ -111,6 +110,7 @@ nav{
     display: flex;
     gap:1rem;
     flex-direction: row;
+    justify-content: space-between;
 
     button{
         background: none;
@@ -121,7 +121,12 @@ nav{
         transition: .3s;
     }
 
-    button:hover{
+    a {
+        color: white;
+        font-size: 30px;
+    }
+
+    button:hover, a:hover{
         color: #63b3ff;
     }
 
@@ -130,8 +135,48 @@ nav{
         height: 40px;
         border-radius: 35%;
         border-color: white;
-        border: 2px solid;
+        border: 3px solid;
     }
+}
+
+/* Ocultar el botón hamburguesa en pantallas grandes */
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* --- ESTILOS PARA SMARTPHONE / PANTALLAS PEQUEÑAS --- */
+@media (max-width: 768px) {
+  .hamburger-btn {
+    display: block; /* Mostrar el botón en móviles */
+  }
+
+  .menu {
+    display: none; /* Ocultar el menú horizontal */
+    flex-direction: column; /* Desplegar elementos uno debajo de otro */
+    position: absolute;
+    top: 60px; /* Ajusta según la altura de tu header */
+    right: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Clase que activa el JS al presionar el botón */
+  .menu.active {
+    display: flex; /* Muestra el menú cuando está activo */
+  }
+
+  .menu a {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0;
+  }
 }
 
 /* footer */
@@ -383,6 +428,7 @@ nav{
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     font-weight: 600;
+    border-radius: 10%;
 }
 
 .details-button {
@@ -397,10 +443,42 @@ nav{
       radial-gradient(circle, #716eef 0.2em, transparent 0.3em) 0 0/1em 1em;
   }
 }
+
+/* button "Add to Comparison"*/
+.compare-button {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.compare-button {
+  border-color: #00441b;
+  color: #00441b;
+  &:hover {
+    color: #fff;
+    transition-delay: 0.2s;
+    animation: ani500 0.6s forwards;
+    background: radial-gradient(circle, #238b45 0.2em, transparent 0.3em) 6em
+        6em/1em 1em,
+      radial-gradient(circle, #238b45 0.2em, transparent 0.3em) 0 0/1em 1em;
+  }
+}
+
 @keyframes ani500 {
   100% {
     background-size: 2.375em 2.375em, 0.1em 0.1em;
   }
+}
+
+/*button "Remove" - from Collection*/
+.remove-button {
+    background-color:#716eef;
+}
+
+.remove-button:hover {
+    color:white;
+    background-color: #ff0000;
 }
 
 /* main error message to featured games cards */
@@ -582,4 +660,79 @@ nav{
   to { border-right-color: transparent; }
 }
 
-/* end Game details */
+@media screen and (max-width: 768px) {
+    .alert {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+
+
+/* Comparison */
+.comparison-section {
+    padding: 2rem;
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.comparison-card {
+    padding: 1.5rem;
+    border-radius: 10px;
+    border:10px solid;
+    border-color:#002bff;
+    background: rgb(255, 255, 255, 0.3);
+    margin-bottom: auto;
+}
+
+.comparison-card h2 {
+  color:#0F172A;
+  text-decoration: underline;
+  text-decoration-color:#002bff;
+  text-decoration-thickness: 3px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+
+.comparison-card strong{
+    color:#111827
+}
+
+.compare-button,
+.remove-comparison-button,
+.clear-comparison-button,
+.comparison-link {
+    display: inline-block;
+    margin: 0.5rem;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.comparison-link:hover {
+    color:#63b3ff;
+    background-color: #000;
+}
+
+.remove-comparison-button {
+    margin-top: 3rem;
+}
+
+.remove-comparison-button:hover,
+.clear-comparison-button:hover {
+    color: white;
+    background-color: #830909;
+}
+
+.empty-comparison {
+    text-align: center;
+    padding: 2rem;
+}
