@@ -14,13 +14,17 @@ export function loadHeader() {
 
       <nav>
 
+        <a href="/index.html#search"
         <button id="searchBtn">
           🔍 Search
         </button>
+        </a>
 
+        <a href="/collection/">
         <button id="collectionBtn">
           <img src="/images/owl-collection.ico" alt="mycollection" title="My Collection">
         </button>
+        </a>
 
       </nav>
 

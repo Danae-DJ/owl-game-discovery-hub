@@ -13,9 +13,12 @@ export function renderHero() {
                 ratings, and more.
             </p>
 
-            <button class="hero-button">
-                Search Games
-            </button>
+            <div class="stars"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
 
         </div>
     `;
