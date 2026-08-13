@@ -6,6 +6,10 @@ import {
     alertMessage,
 } from "../services/collection.js";
 import {
+    getComparison,
+    addToComparison,
+} from "../services/comparison.js";
+import {
     renderGameCard,
     setupGameCardButtons,
 } from "./gameCard.js";
@@ -20,6 +24,13 @@ function renderCollection() {
 
             <h2>My Collection</h2>
 
+            <a
+                href="/comparison/"
+                class="comparison-link"
+            >
+                Go to Comparison
+            </a>
+
             <div class="collection-grid">
                 ${
                     games.length
@@ -27,14 +38,24 @@ function renderCollection() {
                     .map(
                         (game) => `
                         <div class="collection-card">
+
                             ${renderGameCard(game)}
+
+                            <button
+                                class="compare-button"
+                                data-id="${game.id}"
+                            >
+                                Add to Comparison
+                            </button>
 
                             <button
                                 class="remove-button"
                                 data-id="${game.id}"
+                                title="Remove"
                             >
-                                Remove from Collection
+                                🗑️❌
                             </button>
+
                         </div>
                     `
                     )
@@ -53,6 +74,7 @@ function renderCollection() {
     if (games.length) {
         setupGameCardButtons();
         setupRemoveButtons();
+        setupCompareButtons();
     }
 }
 
@@ -68,6 +90,41 @@ function setupRemoveButtons() {
             //alertMessage("The game was removed from My Collection.");
 
             renderCollection();
+        });
+    });
+}
+
+function setupCompareButtons() {
+    const buttons = document.querySelectorAll(".compare-button");
+
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const gameId = Number(button.dataset.id);
+
+            const games = getCollection();
+            const game = games.find((item) => item.id === gameId);
+
+            if (!game) {
+                return;
+            }
+
+            const comparison = getComparison();
+
+            if (comparison.length >= 3) {
+                console.log(
+                    "You can compare a maximum of 3 games."
+                );
+                alertMessage("You can compare a maximum of 3 games.")
+                return;
+            }
+
+            const updatedComparison = addToComparison(game);
+
+            console.log(
+                "Games selected for comparison:",
+                updatedComparison
+            );
+            alertMessage("Games selected for comparison")
         });
     });
 }
