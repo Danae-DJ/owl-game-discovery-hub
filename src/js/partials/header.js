@@ -22,7 +22,7 @@ export function loadHeader() {
         </a>
 
         <a href="/comparison/">
-          <button id="comparasionBtn">Comparasion</button>
+          <button id="comparasionBtn">Comparison</button>
         </a>
 
         <a href="/collection/">
